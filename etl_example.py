@@ -69,5 +69,5 @@ datasource0 = DynamicFrame.fromDF(dfs_loggamestateperiodic, glueContext, "dataso
 print "Details on the match", datasource0.count(), datasource0.printSchema()
 
 #Save the data
-datasink5 = glueContext.write_dynamic_frame.from_options(frame = datasource0, connection_type = "s3", connection_options = {"path":"s3://pubg.apicollecter/glue_etl/events_tables/loggamestateperiodic","partitionKeys": ["partition_0"], "compression": "gzip"}, format = "csv", transformation_ctx = "datasink5")
+datasink5 = glueContext.write_dynamic_frame.from_options(frame = datasource0, connection_type = "s3", connection_options = {"path":"s3://glue_etl/events_tables/loggamestateperiodic","partitionKeys": ["partition_0"], "compression": "gzip"}, format = "csv", transformation_ctx = "datasink5")
 job.commit()
